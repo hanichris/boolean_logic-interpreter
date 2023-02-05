@@ -21,9 +21,8 @@ typedef struct node
 /* For ease of pointer assignment to `head_t` without compiler error. */
 typedef SLIST_HEAD(stack, node) head_t;
 
-void push(head_t *head, char *s);
+void push(head_t *head, const char *s);
 char *pop(head_t *head);
-int isEmpty(head_t *head);
 void free_stack(head_t *head);
 
 
