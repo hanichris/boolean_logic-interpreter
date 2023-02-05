@@ -17,6 +17,7 @@ char **split_line(char *line)
 {
 	int bufsize = TOK_BUFSIZE;
 	int position = 0;
+	/* Allocate memory to store the words post split of `string`.*/
 	char **tokens = malloc(bufsize * sizeof(char *));
 	char *token;
 
@@ -26,12 +27,14 @@ char **split_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 
+	/* Return first token from the `string`. */
 	token = strtok(line, TOK_DELIM);
 	while (token != NULL)
 	{
 		tokens[position] = token;
 		position++;
 
+		/* Reallocate more memory space to hold the words if need be. */
 		if (position >= bufsize)
 		{
 			bufsize += TOK_BUFSIZE;
@@ -45,6 +48,7 @@ char **split_line(char *line)
 		token = strtok(NULL, TOK_DELIM);
 	}
 
+	/* Append `NULL` to demarcate end of array.*/
 	tokens[position] = NULL;
 	return (tokens);
 }
