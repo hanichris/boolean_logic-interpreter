@@ -35,7 +35,7 @@ char *pop(head_t *head)
 
 	if (SLIST_EMPTY(head))
 	{
-		printf("Stack is empty!!!\n");
+		printf("Can't pop an empty stack.\n");
 		return (NULL);
 	}
 
@@ -57,7 +57,7 @@ void free_stack(head_t *head)
 
 	if (SLIST_EMPTY(head))
 	{
-		printf("Stack is empty!!!");
+		printf("Stack is already empty.");
 		exit(EXIT_SUCCESS);
 	}
 
