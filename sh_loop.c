@@ -9,22 +9,28 @@
 void sh_loop(void)
 {
 	char *line;
+	char **result;
 	char **args;
 	int status = 1;
 
 	do {
 		write(STDOUT_FILENO, "ʕ•́ᴥ•̀ʔっ ", 22);
 		int i = 0;
+		// char *test[] = {"A", "+", "B", "*", "C"};
 
 		line = read_line();
 		args = split_line(line);
-
-		while (args[i])
+		result = infix_2_postfix(args);
+		
+		while (result[i])
 		{
-			printf(">>> %s\n", args[i]);
+			printf("%s ",result[i]);
 			i++;
 		}
+		printf("\n");
+		
 
+		free(result);
 		free(args);
 		free(line);
 	} while (status);
