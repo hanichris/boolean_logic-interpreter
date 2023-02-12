@@ -8,6 +8,7 @@
 */
 void sh_loop(void)
 {
+	hash_table_t *ht;
 	char *line;
 	char **result;
 	char **args;
