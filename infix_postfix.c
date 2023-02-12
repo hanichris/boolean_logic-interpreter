@@ -26,7 +26,6 @@ char **infix_2_postfix(char **args)
 	int position = 0;
 	int i = 0;
 	char *upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char *numeric = "0123456789";
 
 	if (!postfix)
 	{
@@ -37,15 +36,17 @@ char **infix_2_postfix(char **args)
 	ht = hash_table_create(1024);
 	SLIST_INIT(&stack);
 
-	hash_table_set(ht, "*", "3");
-	hash_table_set(ht, "/", "3");
-	hash_table_set(ht, "+", "2");
-	hash_table_set(ht, "-", "2");
-	hash_table_set(ht, "(", "1");
+	/* Precedence table. */
+	hash_table_set(ht, "not", "5");
+	hash_table_set(ht, "==", "4");
+	hash_table_set(ht, "and", "3");
+	hash_table_set(ht, "or", "2");
+	hash_table_set(ht, "=", "1");
+	hash_table_set(ht, "(", "0");
 
 	while (args[i])
 	{
-		if (strstr(upper, args[i]) || strstr(numeric, args[i]))
+		if (strstr(upper, args[i]))
 		{
 			postfix[position] = args[i];
 			position++;
