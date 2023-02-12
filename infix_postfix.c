@@ -77,7 +77,7 @@ char **infix_2_postfix(char **args)
 				{
 					break;
 				}
-				
+
 			}
 			push(&stack, args[i]);
 		}
@@ -110,8 +110,7 @@ char **infix_2_postfix(char **args)
 			}
 		}
 	}
-
-    hash_table_delete(ht);
+	hash_table_delete(ht);
 	postfix[position] = NULL;
 	return (postfix);
 }
