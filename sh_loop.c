@@ -17,19 +17,18 @@ void sh_loop(void)
 	do {
 		write(STDOUT_FILENO, "ʕ•́ᴥ•̀ʔっ ", 22);
 		int i = 0;
-		// char *test[] = {"A", "+", "B", "*", "C"};
 
 		line = read_line();
 		args = split_line(line);
 		result = infix_2_postfix(args);
-		
+
 		while (result[i])
 		{
-			printf("%s ",result[i]);
+			printf("%s ", result[i]);
 			i++;
 		}
 		printf("\n");
-		
+
 
 		free(result);
 		free(args);
