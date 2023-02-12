@@ -8,6 +8,13 @@
 
 #define TOK_BUFSIZE 64
 
+/**
+ * infix_2_postfix - convert an infix expression to a postfix expression.
+ * @args: an array of strings representing the tokens making up an
+ * infix expression.
+ * Return: an array of strings representing the tokens making up a
+ * postfix expression.
+*/
 char **infix_2_postfix(char **args)
 {
 	hash_table_t *ht;
@@ -74,7 +81,7 @@ char **infix_2_postfix(char **args)
 			}
 			push(&stack, args[i]);
 		}
-
+		/* Allocate more memory if there is likely to be an overflow. */
 		if (position >= bufsize)
 		{
 			bufsize += TOK_BUFSIZE;
@@ -87,7 +94,7 @@ char **infix_2_postfix(char **args)
 		}
 		i++;
 	}
-
+	/* Append any operator still in the stack to the end of the array. */
 	while (!SLIST_EMPTY(&stack))
 	{
 		postfix[position] = pop(&stack);
