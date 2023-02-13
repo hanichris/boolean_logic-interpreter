@@ -16,18 +16,22 @@
 * [License](#license)
 
 ## Description
-Boolean Logic Interpreter is a simple computer environment that can evaluate simple boolean expressions. The boolean operators that are supported within this version of the interpreter are: `parenthesis`, `not`, `==`, `and`, `or`, `=`.
+Boolean Logic Interpreter is a simple computer environment that can evaluate simple boolean expressions. The boolean operators that are supported within this version of the interpreter are: `parentheses`, `not`, `==`, `and`, `or`, `=`.
 <br>
 The operator precedence is shown in the table below:
 
 | Precedence | Operator | Description | Associativity |
 | ---------- | -------- | ----------- | ------------- |
-| 1 | () | Parenthesis | left-to-right |
+| 1 | () | Parentheses | left-to-right |
 | 2 | not | Logical NOT | right-to-left |
 | 3 | == | Equality | left-to-right |
 | 4 | and | Logical AND | left-to-right |
 | 5 | or | Logical OR | left-to-right |
 | 6 | = | Simple assignment | right-to-left |
+
+<p> The lower the number in the precedence column the higher the value is implied.
+</p>
+Supported syntax: `T` to represent true and `F` to represent false.
 
 ## Environment
 
