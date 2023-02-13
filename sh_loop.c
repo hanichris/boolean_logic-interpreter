@@ -33,6 +33,8 @@ void sh_loop(void)
 		printf("\n");
 		
 		ans = eval_postfix(result, ht);
+		ans = hash_table_get(ht, ans) != NULL ? hash_table_get(ht, ans) : ans;
+		
 		ans = strcmp(ans, "T") == 0 ? "true" : "false";
 		
 		printf("Answer: %s\n", ans);
