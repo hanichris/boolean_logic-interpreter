@@ -20,25 +20,16 @@ void sh_loop(void)
 
 	do {
 		write(STDOUT_FILENO, "ʕ•́ᴥ•̀ʔっ ", 22);
-		int i = 0;
 
 		line = read_line();
 		args = split_line(line);
 		result = infix_2_postfix(args);
-		while (result[i])
-		{
-			printf("%s ", result[i]);
-			i++;
-		}
-		printf("\n");
-		
 		ans = eval_postfix(result, ht);
 		ans = hash_table_get(ht, ans) != NULL ? hash_table_get(ht, ans) : ans;
 		
 		ans = strcmp(ans, "T") == 0 ? "true" : "false";
 		
-		printf("Answer: %s\n", ans);
-
+		printf("Answer: %s\n\n", ans);
 
 		free(result);
 		free(args);
