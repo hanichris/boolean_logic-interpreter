@@ -9,8 +9,7 @@
 * [Usage](#usage)
 * [Example of Use](#example-of-use)
 * [Bugs](#bugs)
-* [Staff](#staff)
-* [License](#license)
+* [Author](#staff)
 
 ## Description
 Boolean Logic Interpreter is a simple computer environment that can evaluate simple boolean expressions. The boolean operators that are supported within this version of the interpreter are: `parentheses`, `not`, `==`, `and`, `or`, `=`.
@@ -29,6 +28,7 @@ The operator precedence is shown in the table below:
 <p> The lower the number in the precedence column the higher the value is implied.
 </p>
 Supported syntax: **T** to represent true and **F** to represent false.
+To create a variable, the recognized keywords are uppercase letters in the english alphabet, i.e, A to Z excluding T and F as these are reserved keywords.
 
 ## Environment
 <!-- macOS -->
@@ -48,13 +48,16 @@ Style guidelines: [Betty style](https://github.com/holbertonschool/Betty/wiki)
 
 ## File Structure
 * **Header files**
-    * main.h - Main header file holding major function prototypes.
-    * _stack_.h - header file for stack data structure.
-    * _hash_.h - header file for hashtable data structure.
+    * [main.h](main.h) - Main header file holding major function prototypes.
+    * [_stack_.h](_stack_.h) - header file for stack data structure.
+    * [_hash_.h](_hash_.h) - header file for hashtable data structure.
 * [main.c](main.c) - Main function.
 * [read_line.c](read_line.c) - Get input from the stdin.
 * [split_line.c](split_line.c) - Tokenize the input obtained.
-* [sh_loop](sh_loop) - Initiate REPL.
+* [sh_loop.c](sh_loop) - Initiate REPL.
+* [infix_postfix.c](infix_postfix.c) - Convert an infix expression to a postfix expression.
+* [eval_postfix.c](eval_postfix.c) - Evaluate a postfix expression.
+* [hsh](hsh) - Executable to run the interpreter.
 
 ## Installation
 - Clone this repository: `git clone https://github.com/hanichris/boolean_logic-interpreter.git`
@@ -64,7 +67,34 @@ Style guidelines: [Betty style](https://github.com/holbertonschool/Betty/wiki)
 - or run it in a non-interactive mode: example `echo "T and F" | ./hsh`
 
 ## Usage
+While using the interpreter, ensure each entry is separated by whitespace including the parentheses and operators as is evident in the usecase below.
+### Example of Use
+First compile and run the executable file on your terminal. For compilation see [Installation](#installation)
+```bash
+$./hsh
+ʕ•́ᴥ•̀ʔっ T and F
+Answer: false
 
+ʕ•́ᴥ•̀ʔっ T or F
+Answer: true
 
-## Example of Use
+ʕ•́ᴥ•̀ʔっ ( T and F ) == F
+Answer: true
+```
+Create variables, use the approach below.
+```bash
+ʕ•́ᴥ•̀ʔっ X = F
+Answer: false
 
+ʕ•́ᴥ•̀ʔっ Y = not X
+Answer: true
+
+ʕ•́ᴥ•̀ʔっ not X and Y
+Answer: true
+```
+
+## Bugs
+No known bugs at the moment.
+
+## Author
+hanichris
