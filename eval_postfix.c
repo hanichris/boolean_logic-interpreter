@@ -22,7 +22,6 @@ char *eval_postfix(char **postfix, hash_table_t *ht)
 	int i = 0;
 
 	SLIST_INIT(&stack);
-	(void) ht;
 
 	while (postfix[i])
 	{
@@ -32,14 +31,29 @@ char *eval_postfix(char **postfix, hash_table_t *ht)
 		} else if (strcmp(postfix[i], "not") == 0)
 		{
 			operand1 = pop(&stack);
+			operand1 = hash_table_get(ht, operand1) != NULL ?
+			hash_table_get(ht, operand1) : operand1;
 			answer = strcmp(operand1, "T") == 0 ? "F" : "T";
 			push(&stack, answer);
 		} else
 		{
 			operand2 = pop(&stack);
 			operand1 = pop(&stack);
-			answer = util(postfix[i], operand1, operand2);
-			push(&stack, answer);
+			/* Create a new variable / update a preexisting variable. */
+			if (strcmp(postfix[i], "=") == 0)
+			{
+				hash_table_set(ht, operand1, operand2);
+				push(&stack, operand1);
+			} else
+			{
+				/* Check if both operands are variables. */
+				operand1 = hash_table_get(ht, operand1) != NULL ?
+				hash_table_get(ht, operand1) : operand1;
+				operand2 = hash_table_get(ht, operand2) != NULL ?
+				hash_table_get(ht, operand2) : operand2;
+				answer = util(postfix[i], operand1, operand2);
+				push(&stack, answer);
+			}
 		}
 		i++;
 	}
