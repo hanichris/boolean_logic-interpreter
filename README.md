@@ -31,7 +31,7 @@ The operator precedence is shown in the table below:
 
 <p> The lower the number in the precedence column the higher the value is implied.
 </p>
-Supported syntax: `T` to represent true and `F` to represent false.
+Supported syntax: **T** to represent true and **F** to represent false.
 
 ## Environment
 
