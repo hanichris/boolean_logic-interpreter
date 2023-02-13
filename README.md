@@ -67,7 +67,7 @@ Style guidelines: [Betty style](https://github.com/holbertonschool/Betty/wiki)
 - or run it in a non-interactive mode: example `echo "T and F" | ./hsh`
 
 ## Usage
-While using the interpreter, ensure each entry is separated by whitespace including the parentheses and operators as is evident in the usecase below.
+While using the interpreter, ensure each entry is separated by whitespace including the parentheses and operators as is evident in the usecase below. To exit from the interpreter use: `Ctrl + C`.
 ### Example of Use
 First compile and run the executable file on your terminal. For compilation see [Installation](#installation)
 ```bash
@@ -91,8 +91,11 @@ Answer: true
 
 ʕ•́ᴥ•̀ʔっ not X and Y
 Answer: true
-```
 
+ʕ•́ᴥ•̀ʔっ ^C
+$
+```
+To exit from the interpreter use: `Ctrl + C`.
 ## Bugs
 No known bugs at the moment.
 
